@@ -65,7 +65,7 @@ int main() {
         address = address->ifa_next;
     }
 
-    /*changes*/
+
     freeifaddrs(addresses);
     return 0;
 }
