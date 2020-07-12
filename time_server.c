@@ -51,8 +51,8 @@ int main() {
     printf("Configuring local address...\n");
     struct addrinfo hints;
     memset(&hints, 0, sizeof(hints));
-    hints.ai_family = AF_INET;
-    hints.ai_socktype = SOCK_STREAM;
+    hints.ai_family = AF_INET; // AF_INET -> IPv4 | AF_INET6 -> IPv6
+    hints.ai_socktype = SOCK_STREAM; // SOCK_STREAM - TCP | SOCK_DGRAM - UDP
     hints.ai_flags = AI_PASSIVE;
 
     struct addrinfo *bind_address;
@@ -97,7 +97,7 @@ int main() {
 
 
     printf("Client is connected... ");
-    char address_buffer[100];
+    char address_buffer[100];   
     getnameinfo((struct sockaddr*)&client_address,
             client_len, address_buffer, sizeof(address_buffer), 0, 0,
             NI_NUMERICHOST);
